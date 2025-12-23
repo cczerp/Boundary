@@ -36,7 +36,7 @@ if (hasFirebaseApiKeys) {
     apply(plugin = "com.google.firebase.crashlytics")
 }
 
-val packageName = project.property("ZCASH_RELEASE_PACKAGE_NAME").toString()
+val packageName = project.property("RELEASE_PACKAGE_NAME").toString()
 
 val testnetNetworkName = "Testnet"
 
@@ -48,8 +48,8 @@ android {
 
         // If Google Play deployment is triggered, then these are placeholders which are overwritten
         // when the deployment runs
-        versionCode = project.property("ZCASH_VERSION_CODE").toString().toInt()
-        versionName = project.property("ZCASH_VERSION_NAME").toString()
+        versionCode = project.property("VERSION_CODE").toString().toInt()
+        versionName = project.property("VERSION_NAME").toString()
 
         if (project.property("IS_USE_TEST_ORCHESTRATOR").toString().toBoolean()) {
             testInstrumentationRunnerArguments["clearPackageData"] = "true"
@@ -99,11 +99,11 @@ android {
         }
     }
 
-    val releaseKeystorePath = project.property("ZCASH_RELEASE_KEYSTORE_PATH").toString()
-    val releaseKeystorePassword = project.property("ZCASH_RELEASE_KEYSTORE_PASSWORD").toString()
-    val releaseKeyAlias = project.property("ZCASH_RELEASE_KEY_ALIAS").toString()
+    val releaseKeystorePath = project.property("RELEASE_KEYSTORE_PATH").toString()
+    val releaseKeystorePassword = project.property("RELEASE_KEYSTORE_PASSWORD").toString()
+    val releaseKeyAlias = project.property("RELEASE_KEY_ALIAS").toString()
     val releaseKeyAliasPassword =
-        project.property("ZCASH_RELEASE_KEY_ALIAS_PASSWORD").toString()
+        project.property("RELEASE_KEY_ALIAS_PASSWORD").toString()
     val isReleaseSigningConfigured = listOf(
         releaseKeystorePath,
         releaseKeystorePassword,
@@ -160,9 +160,9 @@ android {
 
     // Resolve final app name
     applicationVariants.all {
-        val defaultAppName = project.property("ZCASH_RELEASE_APP_NAME").toString()
-        val debugAppNameSuffix = project.property("ZCASH_DEBUG_APP_NAME_SUFFIX").toString()
-        val fossAppNameSuffix = project.property("ZCASH_FOSS_APP_NAME_SUFFIX").toString()
+        val defaultAppName = project.property("RELEASE_APP_NAME").toString()
+        val debugAppNameSuffix = project.property("DEBUG_APP_NAME_SUFFIX").toString()
+        val fossAppNameSuffix = project.property("FOSS_APP_NAME_SUFFIX").toString()
         when (this.name) {
             "boundarytestnetStoreDebug" -> {
                 resValue("string", "app_name", "$defaultAppName $debugAppNameSuffix $testnetNetworkName")
@@ -260,7 +260,7 @@ androidComponents {
                 ResValue(value = hasFirebaseApiKeys.toString())
             )
 
-            val defaultVersionName = project.property("ZCASH_VERSION_NAME").toString()
+            val defaultVersionName = project.property("VERSION_NAME").toString()
             output.versionName.set(defaultVersionName)
             val gitInfo = Git.newInfo(Git.HEAD, rootDir)
             output.versionCode.set(gitInfo.commitCount)
@@ -315,8 +315,8 @@ fladle {
         buildTargetSdk.coerceAtMost(FIREBASE_TEST_LAB_MAX_SDK).toString()
     }
 
-    val firebaseTestLabKeyPath = project.properties["ZCASH_FIREBASE_TEST_LAB_API_KEY_PATH"].toString()
-    val firebaseProject = project.properties["ZCASH_FIREBASE_TEST_LAB_PROJECT"].toString()
+    val firebaseTestLabKeyPath = project.properties["FIREBASE_TEST_LAB_API_KEY_PATH"].toString()
+    val firebaseProject = project.properties["FIREBASE_TEST_LAB_PROJECT"].toString()
 
     if (firebaseTestLabKeyPath.isNotEmpty()) {
         serviceAccountCredentials.set(File(firebaseTestLabKeyPath))
