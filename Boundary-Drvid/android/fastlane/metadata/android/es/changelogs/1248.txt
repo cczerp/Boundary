@@ -1,4 +1,0 @@
-Cambiado:
-- Eliminamos los servidores lwd de la lista de servidores porque pronto dejarán de recibir soporte.
-Corregido:
-- Solucionamos algunos problemas de interfaz de usuario.
