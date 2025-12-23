@@ -128,7 +128,7 @@ android {
             // Note that the build-conventions defines the res configs
             isPseudoLocalesEnabled = true
 
-            // Suffixing app package name and version to avoid collisions with other installed Zashi
+            // Suffixing app package name and version to avoid collisions with other installed Boundary
             // apps (e.g. from Google Play)
             versionNameSuffix = "-debug"
             applicationIdSuffix = ".debug"
@@ -164,32 +164,32 @@ android {
         val debugAppNameSuffix = project.property("ZCASH_DEBUG_APP_NAME_SUFFIX").toString()
         val fossAppNameSuffix = project.property("ZCASH_FOSS_APP_NAME_SUFFIX").toString()
         when (this.name) {
-            "zcashtestnetStoreDebug" -> {
+            "boundarytestnetStoreDebug" -> {
                 resValue("string", "app_name", "$defaultAppName $debugAppNameSuffix $testnetNetworkName")
             }
-            "zcashmainnetStoreDebug" -> {
+            "boundarymainnetStoreDebug" -> {
                 resValue("string", "app_name", "$defaultAppName $debugAppNameSuffix")
             }
-            "zcashtestnetStoreRelease" -> {
+            "boundarytestnetStoreRelease" -> {
                 resValue("string", "app_name", "$defaultAppName $testnetNetworkName")
             }
-            "zcashmainnetStoreRelease" -> {
+            "boundarymainnetStoreRelease" -> {
                 resValue("string", "app_name", defaultAppName)
             }
-            "zcashtestnetFossDebug" -> {
+            "boundarytestnetFossDebug" -> {
                 resValue(
                     "string",
                     "app_name",
                     "$defaultAppName $fossAppNameSuffix $debugAppNameSuffix $testnetNetworkName"
                 )
             }
-            "zcashmainnetFossDebug" -> {
+            "boundarymainnetFossDebug" -> {
                 resValue("string", "app_name", "$defaultAppName $fossAppNameSuffix $debugAppNameSuffix")
             }
-            "zcashtestnetFossRelease" -> {
+            "boundarytestnetFossRelease" -> {
                 resValue("string", "app_name", "$defaultAppName $fossAppNameSuffix $testnetNetworkName")
             }
-            "zcashmainnetFossRelease" -> {
+            "boundarymainnetFossRelease" -> {
                 resValue("string", "app_name", defaultAppName)
             }
         }
@@ -334,7 +334,7 @@ fladle {
 
             debugApk.set(
                 project.provider {
-                    "${buildDirectory}/outputs/apk/zcashmainnetStore/debug/app-zcashmainnet-store-debug.apk"
+                    "${buildDirectory}/outputs/apk/boundarymainnetStore/debug/app-boundarymainnet-store-debug.apk"
                 }
             )
 
@@ -353,7 +353,7 @@ fladle {
             debugApk.set(
                 project.provider {
                     "$buildDirectory" +
-                        "/outputs/apk_from_bundle/zcashmainnetStoreRelease/app-zcashmainnet-store-release-universal.apk"
+                        "/outputs/apk_from_bundle/boundarymainnetStoreRelease/app-boundarymainnet-store-release-universal.apk"
                 }
             )
 
