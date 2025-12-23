@@ -1,3 +1,0 @@
-Corregido:
-- Corrección de errores
-- Actualizaciones de UI/UX

@@ -9,55 +9,55 @@ import androidx.compose.ui.graphics.Color
 import co.electriccoin.zcash.ui.design.theme.ExtendedColors
 
 internal object Dark {
-    val primaryColor = Color(0xFF231F20)
-    val secondaryColor = Color(0xFFFFFFFF)
+    val primaryColor = Color(0xFF000000) // Boundary Black
+    val secondaryColor = Color(0xFF00FF41) // Boundary Matrix Green
 
     val backgroundColor = primaryColor
-    val gridColor = Color(0xFF272727)
+    val gridColor = Color(0xFF212121) // Boundary Dark Gray
 
-    val textPrimary = secondaryColor
-    val textSecondary = primaryColor
-    val textDisabled = Color(0xFF4D4D4D)
-    val textFieldFrame = Color(0xFFFFFFFF)
+    val textPrimary = Color(0xFFFFFFFF) // Boundary White
+    val textSecondary = Color(0xFF1A237E) // Boundary Deep Blue
+    val textDisabled = Color(0xFF424242) // Boundary Medium Gray
+    val textFieldFrame = Color(0xFF00FF41) // Boundary Matrix Green
     val textFieldWarning = Color(0xFFFE5858)
-    val textFieldHint = Color(0xFFB7B7B7)
-    val textDescription = Color(0xFFC1C1C1)
-    val textDescriptionDark = Color(0xFFFFFFFF)
-    val reference = Color(0xFFFFFFFF)
+    val textFieldHint = Color(0xFFE0E0E0) // Boundary Light Gray
+    val textDescription = Color(0xFFE0E0E0) // Boundary Light Gray
+    val textDescriptionDark = Color(0xFFFFFFFF) // Boundary White
+    val reference = Color(0xFF00FF41) // Boundary Matrix Green
 
-    val welcomeAnimationColor = Color(0xFF181716)
-    val complementaryColor = Color(0xFFF4B728)
+    val welcomeAnimationColor = Color(0xFF1A237E) // Boundary Deep Blue
+    val complementaryColor = Color(0xFF00FF41) // Boundary Matrix Green
 
-    val primaryDividerColor = Color(0xFF4D4D4D)
-    val secondaryDividerColor = Color(0xFFFFFFFF)
-    val tertiaryDividerColor = Color(0xFF4D4D4D)
+    val primaryDividerColor = Color(0xFF424242) // Boundary Medium Gray
+    val secondaryDividerColor = Color(0xFF00FF41) // Boundary Matrix Green
+    val tertiaryDividerColor = Color(0xFF1A237E) // Boundary Deep Blue
 
-    val panelBackgroundColor = Color(0xFF262324)
-    val panelBackgroundColorActive = Color(0xFF000000)
+    val panelBackgroundColor = Color(0xFF212121) // Boundary Dark Gray
+    val panelBackgroundColorActive = Color(0xFF1A237E) // Boundary Deep Blue
 
-    val layoutStroke = Color(0xFFFFFFFF)
-    val layoutStrokeSecondary = Color(0xFFDDDDDD)
-    val cameraDisabledBackgroundColor = Color(0xFF000000)
-    val cameraDisabledFrameColor = Color(0xFF5E5C5C)
+    val layoutStroke = Color(0xFF00FF41) // Boundary Matrix Green
+    val layoutStrokeSecondary = Color(0xFF424242) // Boundary Medium Gray
+    val cameraDisabledBackgroundColor = Color(0xFF000000) // Boundary Black
+    val cameraDisabledFrameColor = Color(0xFF424242) // Boundary Medium Gray
 
     val primaryButtonColors = DarkPrimaryButtonColors()
     val secondaryButtonColors = DarkSecondaryButtonColors()
     val tertiaryButtonColors = DarkTertiaryButtonColors()
 
-    val circularProgressBarSmall = Color(0xFFFFFFFF)
-    val circularProgressBarSmallDark = Color(0xFFFFFFFF)
-    val circularProgressBarScreen = Color(0xFFFFFFFF)
-    val linearProgressBarTrack = Color(0xFFDDDDDD)
+    val circularProgressBarSmall = Color(0xFF00FF41) // Boundary Matrix Green
+    val circularProgressBarSmallDark = Color(0xFF00FF41) // Boundary Matrix Green
+    val circularProgressBarScreen = Color(0xFF00FF41) // Boundary Matrix Green
+    val linearProgressBarTrack = Color(0xFF424242) // Boundary Medium Gray
     val linearProgressBarBackground = complementaryColor
 
-    val overlay = Color(0x22000000)
-    val overlayProgressBar = Color(0xFFFFFFFF)
+    val overlay = Color(0x88000000) // Darker overlay for better contrast
+    val overlayProgressBar = Color(0xFF00FF41) // Boundary Matrix Green
 
-    val historyBackgroundColor = Color(0xFF262324)
+    val historyBackgroundColor = Color(0xFF212121) // Boundary Dark Gray
     val historyRedColor = textFieldWarning
-    val historySyncingColor = Color(0xFF181716)
-    val historyMessageBubbleColor = Color(0xFF000000)
-    val historyMessageBubbleStrokeColor = Color(0xFF000000)
+    val historySyncingColor = Color(0xFF1A237E) // Boundary Deep Blue
+    val historyMessageBubbleColor = Color(0xFF1A237E) // Boundary Deep Blue
+    val historyMessageBubbleStrokeColor = Color(0xFF00FF41) // Boundary Matrix Green
 
     val topAppBarColors = DarkTopAppBarColors()
     val transparentTopAppBarColors = TransparentTopAppBarColors()

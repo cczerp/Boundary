@@ -1,3 +1,0 @@
-Fixed:
-- Bug fixes
-- UI/UX updates
