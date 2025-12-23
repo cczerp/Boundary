@@ -126,18 +126,18 @@ androidComponents {
             )
         )
         variant.buildConfigFields.put(
-            "ZCASH_FLEXA_KEY",
+            "FLEXA_KEY",
             BuildConfigField(
                 type = "String",
-                value = "\"${project.property("ZCASH_FLEXA_KEY")?.toString().orEmpty()}\"",
+                value = "\"${project.property("FLEXA_KEY")?.toString().orEmpty()}\"",
                 comment = "Publishable key of the Flexa integration"
             )
         )
         variant.buildConfigFields.put(
-            "ZCASH_CMC_KEY",
+            "CMC_KEY",
             BuildConfigField(
                 type = "String",
-                value = "\"${project.property("ZCASH_CMC_KEY")?.toString().orEmpty()}\"",
+                value = "\"${project.property("CMC_KEY")?.toString().orEmpty()}\"",
                 comment = "Publishable key of the CMC integration"
             )
         )

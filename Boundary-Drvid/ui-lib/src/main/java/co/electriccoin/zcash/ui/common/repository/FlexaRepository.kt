@@ -34,7 +34,7 @@ class FlexaRepositoryImpl(
     private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
 
     private val publishableKey: String?
-        get() = BuildConfig.ZCASH_FLEXA_KEY.takeIf { it.isNotEmpty() }
+        get() = BuildConfig.FLEXA_KEY.takeIf { it.isNotEmpty() }
 
     override fun init() {
         scope.launch {

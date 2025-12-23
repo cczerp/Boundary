@@ -20,7 +20,7 @@ import kotlinx.datetime.Clock
 
 interface ExchangeRateDataSource {
     /**
-     * Returns exchange rate from CMC if [BuildConfig.ZCASH_CMC_KEY] is available
+     * Returns exchange rate from CMC if [BuildConfig.CMC_KEY] is available
      *
      * @throws ExchangeRateUnavailable when exchange rate is not found or server was down
      */
@@ -57,7 +57,7 @@ class ExchangeRateDataSourceImpl(
             return FiatCurrencyConversion(timestamp = Clock.System.now(), priceOfZec = price.toDouble())
         }
 
-        val cmcKey = BuildConfig.ZCASH_CMC_KEY.takeIf { it.isNotBlank() }
+        val cmcKey = BuildConfig.CMC_KEY.takeIf { it.isNotBlank() }
 
         return if (cmcKey != null) {
             getCMCExchangeRate(cmcKey)

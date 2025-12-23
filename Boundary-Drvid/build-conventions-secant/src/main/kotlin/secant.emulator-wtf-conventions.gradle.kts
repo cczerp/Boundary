@@ -11,7 +11,7 @@ internal val className = this::class.simpleName
 
 pluginManager.withPlugin("wtf.emulator.gradle") {
     project.the<wtf.emulator.EwExtension>().apply {
-        val tokenString = project.properties["ZCASH_EMULATOR_WTF_API_KEY"].toString()
+        val tokenString = project.properties["EMULATOR_WTF_API_KEY"].toString()
         if (tokenString.isNotEmpty()) {
             token.set(tokenString)
         }

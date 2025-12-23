@@ -3,8 +3,8 @@ buildscript {
         // This property is treated specially, as it is not defined by default in the root gradle.properties
         // and declaring it in the root gradle.properties is ignored by included builds. This only picks up
         // a value declared as a system property, a command line argument, or a an environment variable.
-        val isDependencyLockingEnabled = if (project.hasProperty("ZCASH_IS_DEPENDENCY_LOCKING_ENABLED")) {
-            project.property("ZCASH_IS_DEPENDENCY_LOCKING_ENABLED").toString().toBoolean()
+        val isDependencyLockingEnabled = if (project.hasProperty("IS_DEPENDENCY_LOCKING_ENABLED")) {
+            project.property("IS_DEPENDENCY_LOCKING_ENABLED").toString().toBoolean()
         } else {
             true
         }
@@ -82,16 +82,16 @@ tasks {
         // in the repo, but instead set them in their local ~/.gradle/gradle.properties file
         // (or use command line arguments)
         val expectedPropertyValues = mapOf(
-            "ZCASH_IS_TREAT_WARNINGS_AS_ERRORS" to "true",
+            "IS_TREAT_WARNINGS_AS_ERRORS" to "true",
             "IS_KOTLIN_TEST_COVERAGE_ENABLED" to "true",
             "IS_ANDROID_INSTRUMENTATION_TEST_COVERAGE_ENABLED" to "false",
             "IS_USE_TEST_ORCHESTRATOR" to "false",
             "IS_CRASH_ON_STRICT_MODE_VIOLATION" to "false",
 
-            "ZCASH_FIREBASE_TEST_LAB_API_KEY_PATH" to "",
-            "ZCASH_FIREBASE_TEST_LAB_PROJECT" to "",
+            "FIREBASE_TEST_LAB_API_KEY_PATH" to "",
+            "FIREBASE_TEST_LAB_PROJECT" to "",
 
-            "ZCASH_EMULATOR_WTF_API_KEY" to "",
+            "EMULATOR_WTF_API_KEY" to "",
 
             "IS_MINIFY_ENABLED" to "true",
             "NDK_DEBUG_SYMBOL_LEVEL" to "symbol_table",
@@ -101,24 +101,24 @@ tasks {
             "IS_SECURE_SCREEN_PROTECTION_ACTIVE" to "true",
             "IS_SCREEN_ROTATION_ENABLED" to "false",
 
-            "ZCASH_DEBUG_KEYSTORE_PATH" to "",
-            "ZCASH_RELEASE_KEYSTORE_PATH" to "",
-            "ZCASH_RELEASE_KEYSTORE_PASSWORD" to "",
-            "ZCASH_RELEASE_KEY_ALIAS" to "",
-            "ZCASH_RELEASE_KEY_ALIAS_PASSWORD" to "",
+            "DEBUG_KEYSTORE_PATH" to "",
+            "RELEASE_KEYSTORE_PATH" to "",
+            "RELEASE_KEYSTORE_PASSWORD" to "",
+            "RELEASE_KEY_ALIAS" to "",
+            "RELEASE_KEY_ALIAS_PASSWORD" to "",
 
             "IS_SIGN_RELEASE_BUILD_WITH_DEBUG_KEY" to "false",
             "IS_RELEASE_BUILD_DEBUGGABLE" to "false",
 
-            "ZCASH_GOOGLE_PLAY_SERVICE_ACCOUNT" to "",
-            "ZCASH_GOOGLE_PLAY_SERVICE_ACCOUNT_KEY" to "",
-            "ZCASH_GOOGLE_PLAY_PUBLISHER_API_KEY" to "",
-            "ZCASH_GOOGLE_PLAY_SERVICE_KEY_FILE_PATH" to "",
-            "ZCASH_GOOGLE_PLAY_DEPLOY_TRACK" to "internal",
-            "ZCASH_GOOGLE_PLAY_DEPLOY_STATUS" to "draft",
+            "GOOGLE_PLAY_SERVICE_ACCOUNT" to "",
+            "GOOGLE_PLAY_SERVICE_ACCOUNT_KEY" to "",
+            "GOOGLE_PLAY_PUBLISHER_API_KEY" to "",
+            "GOOGLE_PLAY_SERVICE_KEY_FILE_PATH" to "",
+            "GOOGLE_PLAY_DEPLOY_TRACK" to "internal",
+            "GOOGLE_PLAY_DEPLOY_STATUS" to "draft",
 
-            "ZCASH_FLEXA_KEY" to "",
-            "ZCASH_CMC_KEY" to "",
+            "FLEXA_KEY" to "",
+            "CMC_KEY" to "",
             "SDK_INCLUDED_BUILD_PATH" to "",
             "BIP_39_INCLUDED_BUILD_PATH" to ""
         )
@@ -165,8 +165,8 @@ fladle {
         buildTargetSdk.coerceAtMost(FIREBASE_TEST_LAB_MAX_SDK).toString()
     }
 
-    val firebaseTestLabKeyPath = project.properties["ZCASH_FIREBASE_TEST_LAB_API_KEY_PATH"].toString()
-    val firebaseProject = project.properties["ZCASH_FIREBASE_TEST_LAB_PROJECT"].toString()
+    val firebaseTestLabKeyPath = project.properties["FIREBASE_TEST_LAB_API_KEY_PATH"].toString()
+    val firebaseProject = project.properties["FIREBASE_TEST_LAB_PROJECT"].toString()
 
     if (firebaseTestLabKeyPath.isNotEmpty()) {
         serviceAccountCredentials.set(File(firebaseTestLabKeyPath))

@@ -113,7 +113,7 @@ fun com.android.build.gradle.BaseExtension.configureBaseExtension() {
     }
 
     signingConfigs {
-        val debugKeystorePath = project.property("ZCASH_DEBUG_KEYSTORE_PATH").toString()
+        val debugKeystorePath = project.property("DEBUG_KEYSTORE_PATH").toString()
         val isExplicitDebugSigningEnabled = !debugKeystorePath.isNullOrBlank()
         if (isExplicitDebugSigningEnabled) {
             // If this block doesn't execute, the output will still be signed with the default keystore
@@ -184,7 +184,7 @@ fun com.android.build.gradle.BaseExtension.configureBaseExtension() {
     if (this is CommonExtension<*, *, *, *, *, *>) {
         kotlinOptions {
             jvmTarget = project.property("ANDROID_JVM_TARGET").toString()
-            allWarningsAsErrors = project.property("ZCASH_IS_TREAT_WARNINGS_AS_ERRORS").toString().toBoolean()
+            allWarningsAsErrors = project.property("IS_TREAT_WARNINGS_AS_ERRORS").toString().toBoolean()
             freeCompilerArgs = freeCompilerArgs + "-opt-in=kotlin.RequiresOptIn" + buildComposeMetricsParameters()
         }
     }

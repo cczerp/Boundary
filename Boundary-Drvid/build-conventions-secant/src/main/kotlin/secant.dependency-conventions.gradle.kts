@@ -1,6 +1,6 @@
 dependencyLocking {
-    val isDependencyLockingEnabled = if (project.hasProperty("ZCASH_IS_DEPENDENCY_LOCKING_ENABLED")) {
-        project.property("ZCASH_IS_DEPENDENCY_LOCKING_ENABLED").toString().toBoolean()
+    val isDependencyLockingEnabled = if (project.hasProperty("IS_DEPENDENCY_LOCKING_ENABLED")) {
+        project.property("IS_DEPENDENCY_LOCKING_ENABLED").toString().toBoolean()
     } else {
         true
     }

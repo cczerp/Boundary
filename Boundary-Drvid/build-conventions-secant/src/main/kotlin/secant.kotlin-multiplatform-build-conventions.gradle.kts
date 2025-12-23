@@ -6,7 +6,7 @@ pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") {
             compilations.all {
                 compileTaskProvider.configure {
                     compilerOptions.allWarningsAsErrors.set(
-                        project.property("ZCASH_IS_TREAT_WARNINGS_AS_ERRORS").toString().toBoolean()
+                        project.property("IS_TREAT_WARNINGS_AS_ERRORS").toString().toBoolean()
                     )
                     compilerOptions.freeCompilerArgs.addAll("-opt-in=kotlin.RequiresOptIn")
                 }
