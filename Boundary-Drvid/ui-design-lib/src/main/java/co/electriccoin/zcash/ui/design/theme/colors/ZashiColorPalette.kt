@@ -12,6 +12,19 @@ internal object Base {
     val Brand = Color(0xFFFCBB1A)
 }
 
+// Boundary Wallet Color Palette
+internal object Boundary {
+    val Black = Color(0xFF000000)
+    val DeepBlue = Color(0xFF1A237E)
+    val MatrixGreen = Color(0xFF00FF41)
+    val DarkGray = Color(0xFF212121)
+    val MediumGray = Color(0xFF424242)
+    val LightGray = Color(0xFFE0E0E0)
+    val White = Color(0xFFFFFFFF)
+    val DarkBlueVariant = Color(0xFF0D47A1)
+    val DarkGreen = Color(0xFF00B233)
+}
+
 internal object Gray {
     val `25` = Color(0xFFFFFFFF)
     val `50` = Color(0xFFF7F7F5)
