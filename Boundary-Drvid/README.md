@@ -1,39 +1,32 @@
-# Zashi Android Wallet
+# Boundary Wallet for Android
 
-This is the official home of the Zashi Zcash wallet for Android, a no-frills
-Zcash mobile wallet leveraging the [Zcash Android SDK](https://github.com/Electric-Coin-Company/zcash-android-wallet-sdk).  
+Boundary is a Zcash-powered mobile wallet for Android, built for unstoppable private payments.
+
+**This is a fork of Zashi**, originally developed by [Electric Coin Company](https://github.com/Electric-Coin-Company).
+We're grateful for their pioneering work on Zcash privacy technology and the solid foundation they've provided.
+
+Boundary leverages the [Zcash Android SDK](https://github.com/Electric-Coin-Company/zcash-android-wallet-sdk).  
 
 # Download
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/co.electriccoin.zcash.foss/)
-[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
-     alt="Get it on Google Play"
-     height="80">](https://play.google.com/store/apps/details?id=co.electriccoin.zcash)
+Coming soon! Boundary Wallet will be available for download once development is complete.
 
-Or download the latest APK from the [Releases Section](https://github.com/Electric-Coin-Company/zashi-android/releases/latest).
+# Upstream Project (Zashi)
 
-# Zashi Discord
+This project is based on [Zashi Android Wallet](https://github.com/Electric-Coin-Company/zashi-android) by Electric Coin Company.
 
-Join the Zashi community on ECC Discord server, report bugs, share ideas, request new features, and help shape Zashi's journey!
-
-https://discord.gg/jQPU7aXe7A
+For the original Zashi wallet:
+- [Zashi on Google Play](https://play.google.com/store/apps/details?id=co.electriccoin.zcash)
+- [Zashi on F-Droid](https://f-droid.org/packages/co.electriccoin.zcash.foss/)
+- [Zashi Discord Community](https://discord.gg/jQPU7aXe7A)
 
 # Reporting an issue
 
-If you'd like to report a technical issue or feature request for the Android
-Wallet, please file a GitHub issue [here](https://github.com/Electric-Coin-Company/zashi-android/issues/new/choose).
+For Boundary-specific issues, please contact support@boundarywallet.com
 
-For feature requests and issues related to the Zashi user interface that are
-not Android-specific, please file a GitHub issue [here](https://github.com/Electric-Coin-Company/zashi/issues/new/choose).
+For security issues, please follow responsible disclosure practices and report to support@boundarywallet.com
 
-If you wish to report a security issue, please follow our 
-[Responsible Disclosure guidelines](https://github.com/Electric-Coin-Company/zashi/blob/master/responsible_disclosure.md).
-See the [Wallet App Threat Model](https://github.com/Electric-Coin-Company/zashi/blob/master/wallet_threat_model.md) 
-for more information about the security and privacy limitations of the wallet.
-
-General Zcash questions and/or support requests and are best directed to either:
+For general Zcash questions and support:
  * [Zcash Forum](https://forum.zcashcommunity.com/)
  * [Discord Community](https://discord.io/zcash-community)
 
