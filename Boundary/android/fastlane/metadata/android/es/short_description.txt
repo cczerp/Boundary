@@ -1,1 +1,0 @@
-Zashi: Una billetera de Zcash que mantiene tus transacciones y mensajes privados
