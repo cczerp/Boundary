@@ -127,6 +127,7 @@ dependencyResolutionManagement {
             }
             if (isRepoRestrictionEnabled) {
                 content {
+                    // Upstream Zashi dependency
                     includeGroup("cash.z.ecc.android")
                 }
             }
@@ -137,6 +138,7 @@ dependencyResolutionManagement {
             }
             if (isRepoRestrictionEnabled) {
                 content {
+                    // Upstream Zashi dependency
                     includeGroup("cash.z.ecc.android")
                 }
             }
@@ -197,8 +199,10 @@ dependencyResolutionManagement {
             val markdownVersion = extra["MARKDOWN_VERSION"].toString()
             val mlkitScanningVersion = extra["MLKIT_SCANNING_VERSION"].toString()
             val tinkVersion = extra["TINK_VERSION"].toString()
-            val zcashBip39Version = extra["ZCASH_BIP39_VERSION"].toString()
-            val zcashSdkVersion = extra["ZCASH_SDK_VERSION"].toString()
+            // Formerly ZCASH_BIP39_VERSION
+            val bip39Version = extra["BIP39_VERSION"].toString()
+            // Formerly ZCASH_SDK_VERSION
+            val sdkVersion = extra["SDK_VERSION"].toString()
             val zip321Version = extra["ZIP_321_VERSION"].toString()
             val zxingVersion = extra["ZXING_VERSION"].toString()
             val koinVersion = extra["KOIN_VERSION"].toString()
@@ -263,9 +267,12 @@ dependencyResolutionManagement {
             library("markdown", "org.jetbrains:markdown:$markdownVersion")
             library("mlkit-scanning", "com.google.mlkit:barcode-scanning:$mlkitScanningVersion")
             library("tink", "com.google.crypto.tink:tink-android:$tinkVersion")
-            library("zcash-sdk", "cash.z.ecc.android:zcash-android-sdk:$zcashSdkVersion")
-            library("zcash-sdk-incubator", "cash.z.ecc.android:zcash-android-sdk-incubator:$zcashSdkVersion")
-            library("zcash-bip39", "cash.z.ecc.android:kotlin-bip39:$zcashBip39Version")
+            // Upstream Zashi dependency
+            library("zcash-sdk", "cash.z.ecc.android:zcash-android-sdk:$sdkVersion")
+            // Upstream Zashi dependency
+            library("zcash-sdk-incubator", "cash.z.ecc.android:zcash-android-sdk-incubator:$sdkVersion")
+            // Upstream Zashi dependency
+            library("zcash-bip39", "cash.z.ecc.android:kotlin-bip39:$bip39Version")
             library("zip321", "org.zecdev:zip321:$zip321Version")
             library("zxing", "com.google.zxing:core:$zxingVersion")
             library("koin", "io.insert-koin:koin-android:$koinVersion")
@@ -354,7 +361,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "zcash-android-app"
+// Formerly zcash-android-app
+rootProject.name = "boundary-android-app"
 
 includeBuild("build-conventions-secant")
 
@@ -376,13 +384,15 @@ include("ui-integration-test")
 include("ui-lib")
 include("ui-screenshot-test")
 
-val zcashSdkIncludedBuildPath = extra["SDK_INCLUDED_BUILD_PATH"].toString()
+val sdkIncludedBuildPath = extra["SDK_INCLUDED_BUILD_PATH"].toString()
 
-if (zcashSdkIncludedBuildPath.isNotEmpty()) {
-    logger.lifecycle("The SDK will be used from $zcashSdkIncludedBuildPath instead of Maven Central.")
-    includeBuild(zcashSdkIncludedBuildPath) {
+if (sdkIncludedBuildPath.isNotEmpty()) {
+    logger.lifecycle("The SDK will be used from $sdkIncludedBuildPath instead of Maven Central.")
+    includeBuild(sdkIncludedBuildPath) {
         dependencySubstitution {
+            // Upstream Zashi dependency
             substitute(module("cash.z.ecc.android:zcash-android-sdk")).using(project(":sdk-lib"))
+            // Upstream Zashi dependency
             substitute(module("cash.z.ecc.android:zcash-android-sdk-incubator")).using(project(":sdk-incubator-lib"))
         }
     }
@@ -394,6 +404,7 @@ if (bip39IncludedBuildPath.isNotEmpty()) {
     logger.lifecycle("BIP-39 will be used from $bip39IncludedBuildPath instead of Maven Central.")
     includeBuild(bip39IncludedBuildPath) {
         dependencySubstitution {
+            // Upstream Zashi dependency
             substitute(module("cash.z.ecc.android:kotlin-bip39")).using(project(":bip39-lib"))
         }
     }

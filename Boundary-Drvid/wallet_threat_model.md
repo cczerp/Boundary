@@ -1,14 +1,14 @@
 Wallet App Threat Model
 ========================
 
-> Note: Boundary Wallet is a downstream fork of the Electric Coin Company
-> (ECC) Zashi wallet. This document has been adapted for Boundary Wallet,
-> while preserving the original Zcash protocol assumptions and upstream
-> intent.
+Note: Boundary Wallet is a downstream fork of the Electric Coin Company
+(ECC) Zashi wallet. This document has been adapted for Boundary Wallet,
+while preserving the original Zcash protocol assumptions and upstream
+intent.
 
 This threat model is intended for curious technical users of the ECC wallet
 apps as well as developers making use of the SDK in their own apps. The threat
-model applies to the Boundary Wallet (forked from the ECC Zashi wallet), and should apply to any Zcash wallet built
+model applies to the Boundary Wallet (forked from the ECC Zashi wallet), and should apply to any wallet built
 on top of the ECC SDKs, unless significant modifications have been
 made. See the [Invariant-Centric Threat Modeling](https://github.com/defuse/ictm)
 for a complete explanation of the threat modeling methodology we use. Here's a
@@ -50,7 +50,7 @@ For each kind of adversary, we list:
 
 There are several weaknesses that we believe most users would find
 counter-intuitive, or at least not expect to be the case based on their
-experience using other cryptocurrency wallets or `zcashd`. We've highlighted
+experience using other cryptocurrency wallets. We've highlighted
 those ones in bold.
 
 Let's begin with the most powerful kind of adversary considered by our model.
@@ -98,7 +98,7 @@ sections below. The adversary...
     to the user, see the weaknesses in the sections below.**
 - can't send money to the user at any address of theirs that the adversary did
   not already know about.
-- can't cause a transaction the user is receiving to fail on the Zcash network.
+- can't cause a transaction the user is receiving to fail on the network.
 - can't make the user send the wrong amount of funds.
 - can't make the user send a transaction with a memo field they did not intend.
 - can't make it look like a payment the user received came from a transaction
@@ -131,7 +131,7 @@ adversary can...
     it look like it was actually mined.
 - **make the user think a transaction they sent or received failed when it actually succeeded.**
   - They could omit the transaction, making it look like it failed when in fact it
-    was mined on the Zcash network.
+    was mined on the network.
 
 We plan to eventually fix these issues by implementing the block header and
 note commitment tree validation specified in [ZIP 307](https://github.com/zcash/zips/issues/341).
@@ -142,7 +142,7 @@ Let's move on to the second-most powerful kind of adversary we will consider.
 
 **Description:** There is a trust relationship between the user and the
 lightwalletd server operator. Lightwalletd only ever provides valid
-information coming from a consistent Zcash blockchain state. The information
+information coming from a consistent blockchain state. The information
 is not guaranteed to be recent, and part of it may change (e.g. after a
 reorg) and even revert to old state. The connection to lightwallletd is
 protected by TLS, which we assume to be secure. The adversary (a) can
@@ -238,7 +238,7 @@ The adversary can...
 - tell which cryptocurrencies the user is using if the SDK is used in a
   multi-currency wallet.
   - The adversary would be able to see that the wallet is connecting to a
-    lightwalletd instance, which reveals they are using the Zcash component
+    lightwalletd instance, which reveals they are using the shielded component
     of the wallet.
 - tell when the user is actively using the wallet.
     - They can see that the wallet is communicating with lightwalletd when
@@ -440,7 +440,7 @@ Boundary introduces new attack vectors through its routing and cross-chain capab
 
 ## Boundary Privacy Guarantees
 
-Boundary provides the following privacy guarantees **in addition to** Zashi's guarantees:
+Boundary provides the following privacy guarantees **in addition to** the upstream guarantees:
 
 ### Router Privacy
 - Routers receive only the `Intent` object (no wallet state, keys, or history)

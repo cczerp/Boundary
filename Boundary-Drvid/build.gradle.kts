@@ -97,7 +97,7 @@ tasks {
             "NDK_DEBUG_SYMBOL_LEVEL" to "symbol_table",
 
             "RELEASE_APP_NAME" to "Boundary",
-            "RELEASE_PACKAGE_NAME" to "com.boundarywallet.boundary",
+            "RELEASE_PACKAGE_NAME" to "co.boundary.app",
             "IS_SECURE_SCREEN_PROTECTION_ACTIVE" to "true",
             "IS_SCREEN_ROTATION_ENABLED" to "false",
 

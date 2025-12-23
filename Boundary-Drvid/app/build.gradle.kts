@@ -1,4 +1,4 @@
-import co.electriccoin.zcash.Git
+import co.boundary.app.Git
 import com.android.build.api.variant.BuildConfigField
 import com.android.build.api.variant.ResValue
 import model.BuildType
@@ -41,7 +41,7 @@ val packageName = project.property("RELEASE_PACKAGE_NAME").toString()
 val testnetNetworkName = "Testnet"
 
 android {
-    namespace = "co.electriccoin.zcash.app"
+    namespace = "co.boundary.app"
 
     defaultConfig {
         applicationId = packageName
@@ -55,7 +55,7 @@ android {
             testInstrumentationRunnerArguments["clearPackageData"] = "true"
         }
 
-        testInstrumentationRunner = "co.electriccoin.zcash.test.ZcashUiTestRunner"
+        testInstrumentationRunner = "co.boundary.app.test.BoundaryUiTestRunner"
     }
 
     if (project.property("IS_USE_TEST_ORCHESTRATOR").toString().toBoolean()) {
@@ -217,7 +217,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.androidx.lifecycle.process)
-    implementation(libs.zcash.sdk) // just to configure logging
+    // From upstream Zashi: just to configure logging
+    implementation(libs.zcash.sdk)
     implementation(projects.crashAndroidLib)
     implementation(projects.preferenceApiLib)
     implementation(projects.preferenceImplAndroidLib)
@@ -256,7 +257,7 @@ androidComponents {
 
             variant.resValues.put(
                 // Key matches the one in crash-android-lib/src/res/values/bools.xml
-                variant.makeResValueKey("bool", "co_electriccoin_zcash_crash_is_firebase_enabled"),
+                variant.makeResValueKey("bool", "co_boundary_crash_is_firebase_enabled"),
                 ResValue(value = hasFirebaseApiKeys.toString())
             )
 
