@@ -1,4 +1,4 @@
-import co.electriccoin.zcash.Git
+import co.electriccoin.boundary.Git
 import com.android.build.api.variant.BuildConfigField
 import com.android.build.api.variant.ResValue
 import model.BuildType
@@ -7,6 +7,7 @@ import model.NetworkDimension
 import java.util.Locale
 
 plugins {
+    
     id("com.android.application")
     kotlin("android")
     id("secant.android-build-conventions")
@@ -36,26 +37,26 @@ if (hasFirebaseApiKeys) {
     apply(plugin = "com.google.firebase.crashlytics")
 }
 
-val packageName = project.property("ZCASH_RELEASE_PACKAGE_NAME").toString()
+val packageName = project.property("boundary_RELEASE_PACKAGE_NAME").toString()
 
 val testnetNetworkName = "Testnet"
 
 android {
-    namespace = "co.electriccoin.zcash.app"
+    namespace = "co.electriccoin.boundary.app"
 
     defaultConfig {
         applicationId = packageName
 
         // If Google Play deployment is triggered, then these are placeholders which are overwritten
         // when the deployment runs
-        versionCode = project.property("ZCASH_VERSION_CODE").toString().toInt()
-        versionName = project.property("ZCASH_VERSION_NAME").toString()
+        versionCode = project.property("boundary_VERSION_CODE").toString().toInt()
+        versionName = project.property("boundary_VERSION_NAME").toString()
 
         if (project.property("IS_USE_TEST_ORCHESTRATOR").toString().toBoolean()) {
             testInstrumentationRunnerArguments["clearPackageData"] = "true"
         }
 
-        testInstrumentationRunner = "co.electriccoin.zcash.test.ZcashUiTestRunner"
+        testInstrumentationRunner = "co.electriccoin.boundary.test.boundaryUiTestRunner"
     }
 
     if (project.property("IS_USE_TEST_ORCHESTRATOR").toString().toBoolean()) {
@@ -99,11 +100,11 @@ android {
         }
     }
 
-    val releaseKeystorePath = project.property("ZCASH_RELEASE_KEYSTORE_PATH").toString()
-    val releaseKeystorePassword = project.property("ZCASH_RELEASE_KEYSTORE_PASSWORD").toString()
-    val releaseKeyAlias = project.property("ZCASH_RELEASE_KEY_ALIAS").toString()
+    val releaseKeystorePath = project.property("boundary_RELEASE_KEYSTORE_PATH").toString()
+    val releaseKeystorePassword = project.property("boundary_RELEASE_KEYSTORE_PASSWORD").toString()
+    val releaseKeyAlias = project.property("boundary_RELEASE_KEY_ALIAS").toString()
     val releaseKeyAliasPassword =
-        project.property("ZCASH_RELEASE_KEY_ALIAS_PASSWORD").toString()
+        project.property("boundary_RELEASE_KEY_ALIAS_PASSWORD").toString()
     val isReleaseSigningConfigured = listOf(
         releaseKeystorePath,
         releaseKeystorePassword,
@@ -160,9 +161,9 @@ android {
 
     // Resolve final app name
     applicationVariants.all {
-        val defaultAppName = project.property("ZCASH_RELEASE_APP_NAME").toString()
-        val debugAppNameSuffix = project.property("ZCASH_DEBUG_APP_NAME_SUFFIX").toString()
-        val fossAppNameSuffix = project.property("ZCASH_FOSS_APP_NAME_SUFFIX").toString()
+        val defaultAppName = project.property("boundary_RELEASE_APP_NAME").toString()
+        val debugAppNameSuffix = project.property("boundary_DEBUG_APP_NAME_SUFFIX").toString()
+        val fossAppNameSuffix = project.property("boundary_FOSS_APP_NAME_SUFFIX").toString()
         when (this.name) {
             "boundarytestnetStoreDebug" -> {
                 resValue("string", "app_name", "$defaultAppName $debugAppNameSuffix $testnetNetworkName")
@@ -217,7 +218,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.androidx.lifecycle.process)
-    implementation(libs.zcash.sdk) // just to configure logging
+    implementation(libs.boundary.sdk) // just to configure logging
     implementation(projects.crashAndroidLib)
     implementation(projects.preferenceApiLib)
     implementation(projects.preferenceImplAndroidLib)
@@ -256,11 +257,11 @@ androidComponents {
 
             variant.resValues.put(
                 // Key matches the one in crash-android-lib/src/res/values/bools.xml
-                variant.makeResValueKey("bool", "co_electriccoin_zcash_crash_is_firebase_enabled"),
+                variant.makeResValueKey("bool", "co_electriccoin_boundary_crash_is_firebase_enabled"),
                 ResValue(value = hasFirebaseApiKeys.toString())
             )
 
-            val defaultVersionName = project.property("ZCASH_VERSION_NAME").toString()
+            val defaultVersionName = project.property("boundary_VERSION_NAME").toString()
             output.versionName.set(defaultVersionName)
             val gitInfo = Git.newInfo(Git.HEAD, rootDir)
             output.versionCode.set(gitInfo.commitCount)
@@ -315,8 +316,8 @@ fladle {
         buildTargetSdk.coerceAtMost(FIREBASE_TEST_LAB_MAX_SDK).toString()
     }
 
-    val firebaseTestLabKeyPath = project.properties["ZCASH_FIREBASE_TEST_LAB_API_KEY_PATH"].toString()
-    val firebaseProject = project.properties["ZCASH_FIREBASE_TEST_LAB_PROJECT"].toString()
+    val firebaseTestLabKeyPath = project.properties["boundary_FIREBASE_TEST_LAB_API_KEY_PATH"].toString()
+    val firebaseProject = project.properties["boundary_FIREBASE_TEST_LAB_PROJECT"].toString()
 
     if (firebaseTestLabKeyPath.isNotEmpty()) {
         serviceAccountCredentials.set(File(firebaseTestLabKeyPath))
