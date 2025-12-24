@@ -220,7 +220,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.androidx.lifecycle.process)
     // From upstream Zashi: just to configure logging
-    // implementation(libs.upstream.sdk)
+    implementation(libs.upstream.sdk)
     implementation(projects.crashAndroidLib)
     implementation(projects.preferenceApiLib)
     implementation(projects.preferenceImplAndroidLib)
@@ -322,7 +322,7 @@ fladle {
 
     val minSdkVersion = run {
         val buildMinSdk = project.properties["ANDROID_MIN_SDK_VERSION"].toString().toInt()
-        buildMinSdk.coerceAtLeast(FIREBASE_TEST_LAB_MIN_SDK)
+        buildMinSdk.coerceAtLeast(FIREBASE_TEST_LAB_MIN_.toString()
     }
 
     val firebaseTestLabKeyPath = project.property("FIREBASE_TEST_LAB_KEY_PATH").toString()

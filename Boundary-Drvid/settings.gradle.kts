@@ -199,9 +199,7 @@ dependencyResolutionManagement {
             val markdownVersion = extra["MARKDOWN_VERSION"].toString()
             val mlkitScanningVersion = extra["MLKIT_SCANNING_VERSION"].toString()
             val tinkVersion = extra["TINK_VERSION"].toString()
-            // Formerly ZCASH_BIP39_VERSION
             val bip39Version = extra["BIP39_VERSION"].toString()
-            // Formerly ZCASH_SDK_VERSION
             val sdkVersion = extra["SDK_VERSION"].toString()
             val zip321Version = extra["ZIP_321_VERSION"].toString()
             val zxingVersion = extra["ZXING_VERSION"].toString()
@@ -268,11 +266,11 @@ dependencyResolutionManagement {
             library("mlkit-scanning", "com.google.mlkit:barcode-scanning:$mlkitScanningVersion")
             library("tink", "com.google.crypto.tink:tink-android:$tinkVersion")
             // Upstream Zashi dependency
-            library("zcash-sdk", "cash.z.ecc.android:zcash-android-sdk:$sdkVersion")
+            library("upstream-sdk", "cash.z.ecc.android:zcash-android-sdk:$sdkVersion")
             // Upstream Zashi dependency
-            library("zcash-sdk-incubator", "cash.z.ecc.android:zcash-android-sdk-incubator:$sdkVersion")
+            library("upstream-sdk-incubator", "cash.z.ecc.android:zcash-android-sdk-incubator:$sdkVersion")
             // Upstream Zashi dependency
-            library("zcash-bip39", "cash.z.ecc.android:kotlin-bip39:$bip39Version")
+            library("upstream-bip39", "cash.z.ecc.android:kotlin-bip39:$bip39Version")
             library("zip321", "org.zecdev:zip321:$zip321Version")
             library("zxing", "com.google.zxing:core:$zxingVersion")
             library("koin", "io.insert-koin:koin-android:$koinVersion")
