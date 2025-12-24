@@ -1,7 +1,7 @@
 // import co.boundary.app.Git // Commented out because the class is not resolved
 // import androidx.compose.ui.graphics.vector.path
-// import com.android.build.api.variant.BuildConfigField
-// import com.android.build.api.variant.ResValue
+import com.android.build.api.variant.BuildConfigField
+import com.android.build.api.variant.ResValue
 import model.BuildType
 import model.DistributionDimension
 import model.NetworkDimension

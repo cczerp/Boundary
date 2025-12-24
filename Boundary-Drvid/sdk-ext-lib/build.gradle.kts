@@ -16,9 +16,9 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.datetime)
-    api(libs.zcash.sdk)
-    api(libs.zcash.sdk.incubator)
-    api(libs.zcash.bip39)
+    api(libs.upstream.sdk)
+    api(libs.upstream.sdk.incubator)
+    api(libs.upstream.bip39)
     api(libs.zip321)
 
     androidTestImplementation(libs.bundles.androidx.test)

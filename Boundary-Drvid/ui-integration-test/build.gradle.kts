@@ -69,7 +69,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.zcash.sdk)
+    implementation(libs.upstream.sdk)
 
     implementation(projects.uiLib)
     implementation(projects.uiDesignLib)
