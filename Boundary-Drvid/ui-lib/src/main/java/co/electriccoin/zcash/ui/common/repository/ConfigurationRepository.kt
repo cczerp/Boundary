@@ -51,7 +51,7 @@ class ConfigurationRepositoryImpl(
                 val versionInfo = getVersionInfo()
                 versionInfo.network != ZcashNetwork.Testnet &&
                     ConfigurationEntries.IS_FLEXA_AVAILABLE.getValue(it) &&
-                    BuildConfig.ZCASH_FLEXA_KEY.isNotEmpty()
+                    BuildConfig.FLEXA_KEY.isNotEmpty()
             }.stateIn(
                 scope = scope,
                 started = SharingStarted.WhileSubscribed(ANDROID_STATE_FLOW_TIMEOUT),

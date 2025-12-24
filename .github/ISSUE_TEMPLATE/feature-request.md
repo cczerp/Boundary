@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for the Zashi wallets.
+about: Suggest an idea for the Boundary wallets.
 title: ''
 labels: 'use case'
 assignees: ''

@@ -1,10 +1,12 @@
 # Boundary Wallet for Android
 
-Boundary is a Zcash-powered mobile wallet for Android, built for unstoppable private payments.
+<!-- Based on Zcash-powered mobile wallet for Android -->
+Boundary is a mobile wallet for Android, built for unstoppable private payments.
 
 **This is a fork of Zashi**, originally developed by [Electric Coin Company](https://github.com/Electric-Coin-Company).
 We're grateful for their pioneering work on Zcash privacy technology and the solid foundation they've provided.
 
+<!-- Boundary leverages the Zcash Android SDK -->
 Boundary leverages the [Zcash Android SDK](https://github.com/Electric-Coin-Company/zcash-android-wallet-sdk).  
 
 # Download
@@ -26,10 +28,6 @@ For Boundary-specific issues, please contact support@boundarywallet.com
 
 For security issues, please follow responsible disclosure practices and report to support@boundarywallet.com
 
-For general Zcash questions and support:
- * [Zcash Forum](https://forum.zcashcommunity.com/)
- * [Discord Community](https://discord.io/zcash-community)
-
 # Contributing
 
 Contributions are very much welcomed!  Please read our [Contributing Guidelines](docs/CONTRIBUTING.md) to learn about our process.
@@ -45,12 +43,12 @@ the following changes.  (If you're making a GitHub fork to contribute back to
 the project, these steps are not necessary.)
 
 1. Change the app name under [gradle.properties](gradle.properties)
-    1. See `ZCASH_RELEASE_APP_NAME`
+    1. See `BOUNDARY_RELEASE_APP_NAME`
 1. Change the package name under [app/build.gradle.kts](app/build.gradle.kts)
-    1. See `ZCASH_RELEASE_PACKAGE_NAME`
+    1. See `BOUNDARY_RELEASE_PACKAGE_NAME`
 1. Change the support email address under [strings.xml](ui-lib/src/main/res/ui/non_translatable/values/strings.xml)
     1. See `support_email_address`
-1. Remove any copyrighted ZCash or Electric Coin Company icons, logos, or assets
+1. Remove any copyrighted Zcash or Electric Coin Company icons, logos, or assets
     1. ui-lib/src/main/res/common/ - All of the the ic_launcher assets
 1. Optional
     1. Configure secrets and variables for [Continuous Integration](docs/CI.md)
@@ -68,5 +66,6 @@ the project, these steps are not necessary.)
    APK cannot be run.  The coverage flag should therefore only be set when
    running automated tests.
 1. Test coverage for Compose code will be low, due to [known limitations](https://github.com/jacoco/jacoco/issues/1208) in the interaction between Compose and Jacoco.
+<!-- This is a known issue with the Zcash Android SDK dependency -->
 1. Adding the `espresso-contrib` dependency will cause builds to fail, due to conflicting classes.  This is a [known issue](https://github.com/Electric-Coin-Company/zcash-android-wallet-sdk/issues/306) with the Zcash Android SDK.
 1. During app first launch, the following exception starting with `AndroidKeysetManager: keyset not found, will generate a new one` is printed twice.  This exception is not an error, and the code is not being invoked twice.

@@ -44,7 +44,7 @@ abstract class PublishToGooglePlay @Inject constructor(
     // PublishToGooglePlay is a non-static inner class.
 
     init {
-        description = "Publish universal Zcash wallet apk to Google Play release channel."    // $NON-NLS-1$
+        description = "Publish universal Boundary wallet apk to Google Play release channel."    // $NON-NLS-1$
         group = "publishing"    // $NON-NLS-1$
     }
 
@@ -179,10 +179,10 @@ abstract class PublishToGooglePlay @Inject constructor(
         serviceAccountKey: String,
         publisherApiKey: String
     ) {
-        val packageName = project.property("ZCASH_RELEASE_PACKAGE_NAME").toString()
+        val packageName = project.property("RELEASE_PACKAGE_NAME").toString()
 
         // Walk through the build directory and find the prepared release aab file
-        val apkFile = File("app/build/outputs/bundle/zcashmainnetStoreRelease/").walk()
+        val apkFile = File("app/build/outputs/bundle/boundarymainnetStoreRelease/").walk()
             .filter { it.name.endsWith("release.aab") }
             .firstOrNull() ?: error("Universal release apk not found")
 
@@ -234,7 +234,7 @@ abstract class PublishToGooglePlay @Inject constructor(
         bundleVersionCodes.add(bundle.versionCode.toLong())
 
         // Version name
-        val gradleVersionName = project.property("ZCASH_VERSION_NAME").toString()
+        val gradleVersionName = project.property("VERSION_NAME").toString()
         val versionName = "$gradleVersionName (${bundle.versionCode.toLong()}): Automated Internal Testing Release"
 
         val releaseNotes: List<LocalizedText> = getReleaseNotesFor(
@@ -372,20 +372,20 @@ enum class PublishStatus {
 
 tasks {
     // Validate Google Play Service Account KEY input
-    val googlePlayServiceAccountKey = project.property("ZCASH_GOOGLE_PLAY_SERVICE_ACCOUNT_KEY").toString()
+    val googlePlayServiceAccountKey = project.property("GOOGLE_PLAY_SERVICE_ACCOUNT_KEY").toString()
     if (googlePlayServiceAccountKey.isEmpty()) {
         // The deployment will not run: service account key is empty
         return@tasks
     }
     // Validate Google Play Publisher API KEY input
-    val googlePlayPublisherApiKey = project.property("ZCASH_GOOGLE_PLAY_PUBLISHER_API_KEY").toString()
+    val googlePlayPublisherApiKey = project.property("GOOGLE_PLAY_PUBLISHER_API_KEY").toString()
     if (googlePlayServiceAccountKey.isEmpty()) {
         // The deployment will not run: publisher api key is empty
         return@tasks
     }
 
     // Validate deploy track
-    val deployTrackString = project.property("ZCASH_GOOGLE_PLAY_DEPLOY_TRACK").toString()
+    val deployTrackString = project.property("GOOGLE_PLAY_DEPLOY_TRACK").toString()
     val deployTrack = deployTrackString.let {
         if (it.isEmpty()) {
             // The deployment will not run: track empty
@@ -395,7 +395,7 @@ tasks {
     }
 
     // Validate deploy status
-    val deployStatusString = project.property("ZCASH_GOOGLE_PLAY_DEPLOY_STATUS").toString()
+    val deployStatusString = project.property("GOOGLE_PLAY_DEPLOY_STATUS").toString()
     val deployStatus = deployStatusString.let {
         if (it.isEmpty()) {
             // The deployment will not run: status empty
@@ -411,7 +411,7 @@ tasks {
         deployTrack.toGooglePlayIdentifier(),
         deployStatus.toGooglePlayIdentifier()
     )
-        .dependsOn(":app:assembleZcashmainnetStoreDebug")
-        .dependsOn(":app:bundleZcashmainnetStoreRelease")
-        .dependsOn(":app:packageZcashmainnetStoreReleaseUniversalApk")
+        .dependsOn(":app:assembleBoundarymainnetStoreDebug")
+        .dependsOn(":app:bundleBoundarymainnetStoreRelease")
+        .dependsOn(":app:packageBoundarymainnetStoreReleaseUniversalApk")
 }

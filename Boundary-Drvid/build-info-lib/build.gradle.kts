@@ -101,7 +101,7 @@ fun newIso8601Timestamp(): String {
 }
 
 fun fillInReleaseNotes(inputs: TaskInputs) {
-    val gradleVersionName = project.property("ZCASH_VERSION_NAME").toString()
+    val gradleVersionName = project.property("VERSION_NAME").toString()
 
     val releaseNotesEnJson = ChangelogParser.getChangelogEntry(
         filePath = releaseNotesEnPath,

@@ -1,1 +1,0 @@
-Zashi is a Zcash wallet that keeps your transaction and message history private

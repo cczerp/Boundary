@@ -38,7 +38,7 @@ data class VersionInfo(
                     NetworkDimension.TESTNET -> ZcashNetwork.Testnet
                 }
 
-        val IS_CMC_AVAILABLE = BuildConfig.ZCASH_CMC_KEY.takeIf { it.isNotBlank() } != null
+        val IS_CMC_AVAILABLE = BuildConfig.CMC_KEY.takeIf { it.isNotBlank() } != null
 
         fun new(context: Context): VersionInfo {
             val packageInfo = context.packageManager.getPackageInfoCompat(context.packageName, 0L)
@@ -84,6 +84,6 @@ enum class DistributionDimension(
 enum class NetworkDimension(
     val value: String
 ) {
-    MAINNET("zcashmainnet"),
-    TESTNET("zcashtestnet")
+    MAINNET("boundarymainnet"),
+    TESTNET("boundarytestnet")
 }

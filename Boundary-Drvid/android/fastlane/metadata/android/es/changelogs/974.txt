@@ -1,2 +1,0 @@
-Corregido:
-- Hemos solucionado un fallo que ocurría cuando fallaba la inicialización de Tor.

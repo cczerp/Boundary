@@ -1,3 +1,5 @@
+> Note: This document is adapted from the original Zashi responsible disclosure policy.
+
 This page is copyright The Electric Coin Company, 2021. It is posted in order
 to conform to this standard: https://github.com/RD-Crypto-Spec/Responsible-Disclosure/tree/d47a5a3dafa5942c8849a93441745fdd186731e6
 
@@ -51,10 +53,10 @@ CDHCrwSovQRMHtoOWZijBNobO2y1d0FkUpzNlNw44Ssw0Vo=
 ## Sending Disclosures
 
 In the case where we become aware of security issues affecting other projects
-that have never affected Zcash, our intention is to inform those projects of
+that have never affected Boundary, our intention is to inform those projects of
 security issues on a best effort basis.
 
-In the case where we fix a security issue in the Zashi wallet(s) that also
+In the case where we fix a security issue in the Boundary wallet(s) that also
 affect the following neighboring projects, our intention is to engage in
 responsible disclosures with them as described in
 https://github.com/RD-Crypto-Spec/Responsible-Disclosure.

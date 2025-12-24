@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report about a bug in the Zashi Wallet's user interface.
+about: Create a report about a bug in the Boundary Wallet's user interface.
 title: ''
 labels: 'bug'
 assignees: ''
@@ -8,23 +8,19 @@ assignees: ''
 ---
 
 <!--
-This issue tracker is only for issues related to the Zashi Wallet's user interface.
+This issue tracker is only for issues related to the Boundary Wallet's user interface.
 
 For platform-specific issues, please instead use one of the following channels:
 
-If you'd like to report a bug you encountered in the Zashi iOS Wallet, please
-file a GitHub issue at https://github.com/Electric-Coin-Company/zashi-ios/issues/new?labels=bug&template=bug-report.md
+If you'd like to report a bug you encountered in the Boundary iOS Wallet, please
+file a GitHub issue at https://github.com/Boundary-Wallet/boundary-wallet-ios/issues/new?labels=bug&template=bug-report.md
 
-If you'd like to report a bug you encountered in the Zashi Android Wallet, please
-file a Github issue at https://github.com/Electric-Coin-Company/zashi-android/issues/new?labels=bug&template=bug-report.md
-
-General Zcash questions and/or support requests and are best directed to either:
- * Zcash Forum: https://forum.zcashcommunity.com/
- * Discord Community: https://discord.io/zcash-community
+If you'd like to report a bug you encountered in the Boundary Android Wallet, please
+file a Github issue at https://github.com/Boundary-Wallet/boundary-wallet-android/issues/new?labels=bug&template=bug-report.md
 
 If you wish to report a security issue, please follow our
-[Responsible Disclosure guidelines](https://github.com/Electric-Coin-Company/zashi/blob/master/responsible_disclosure.md).
-See the [Wallet App Threat Model](https://github.com/Electric-Coin-Company/zashi/blob/master/wallet_threat_model.md)
+[Responsible Disclosure guidelines](https://github.com/Boundary-Wallet/boundary-wallet-android/blob/main/responsible_disclosure.md).
+See the [Wallet App Threat Model](https://github.com/Boundary-Wallet/boundary-wallet-android/blob/main/wallet_threat_model.md)
 for more information about the security and privacy limitations of the wallets.
 -->
 
@@ -55,4 +51,3 @@ information like addresses, usernames, amounts or anything other that you might 
 annotate any information like addresses, usernames, amounts or anything other
 that you might consider sensitive and it's not relevant to the problem you are
 reporting.-->
-
